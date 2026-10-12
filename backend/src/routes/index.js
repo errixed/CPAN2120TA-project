@@ -1,4 +1,8 @@
 import { Router } from "express";
+import {
+    authRoutes,
+    advisorRoutes
+} from "../modules/identity/identityRoutes.js";
 
 const router = Router();
 
@@ -12,5 +16,8 @@ router.get("/health", (req, res) => {
         }
     });
 });
+
+router.use("/auth", authRoutes);
+router.use("/advisors", advisorRoutes);
 
 export default router;
