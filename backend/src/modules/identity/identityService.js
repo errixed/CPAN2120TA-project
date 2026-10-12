@@ -3,40 +3,14 @@ import {
     scrypt as scryptCallback,
     timingSafeEqual
 } from "node:crypto";
-
+import {
+    ROLES,
+    CONSULTATION_TYPES
+} from "./identityConstants.js";
 import { promisify } from "node:util";
 import { identityRepository as repository } from "./identityRepository.js";
 
 const scrypt = promisify(scryptCallback);
-
-export const ROLES = Object.freeze({
-    ADMIN: "ADMIN",
-    ADVISOR: "ADVISOR",
-    MARKETING_SPECIALIST: "MARKETING_SPECIALIST"
-});
-
-export const ROLE_RULES = Object.freeze({
-    ADMIN: [
-        "MANAGE_USERS",
-        "MANAGE_PERMISSIONS",
-        "MANAGE_PLATFORM"
-    ],
-    ADVISOR: [
-        "MANAGE_OWN_PROFILE",
-        "MANAGE_OWN_LEADS",
-        "MANAGE_OWN_CAMPAIGNS"
-    ],
-    MARKETING_SPECIALIST: [
-        "MANAGE_ASSIGNED_CAMPAIGNS",
-        "MANAGE_PERMITTED_DELIVERIES"
-    ]
-});
-
-const CONSULTATION_TYPES = [
-    "ONLINE",
-    "IN_PERSON",
-    "PHONE"
-];
 
 function httpError(statusCode, message) {
     const error = new Error(message);
