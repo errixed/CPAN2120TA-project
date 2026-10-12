@@ -339,7 +339,32 @@ Facebook integration will be limited to supported operations available through a
 
 External service integrations may initially use mock implementations while real credentials, permissions, or provider approvals are unavailable.
 
-## 12. Expected Project Outcome
+## 12. Initial Data Models
+
+FinMarket-Enterprise uses Mongoose schemas to define the structure, validation rules, and relationships of its MongoDB collections.
+
+The initial database design contains eight collections:
+
+| Model | Purpose | Relationships |
+|---|---|---|
+| User | Authentication and role management | Referenced by AdvisorProfile and AutomationRule |
+| AdvisorProfile | Financial advisor information | References User |
+| Lead | Prospect and client acquisition management | References AdvisorProfile |
+| Campaign | Marketing campaign management | References AdvisorProfile and optionally Template |
+| Template | Reusable email and Facebook marketing content | References AdvisorProfile |
+| DeliveryJob | Email delivery and Facebook publishing tracking | References Campaign and optionally Lead |
+| AutomationRule | Rule-based marketing automation | References User and optionally Campaign |
+| ActivityEvent | Business event history and analytics | Identifies related entities through entityType and entityId |
+
+Each model defines appropriate field types, required values, defaults, and validation constraints. Relevant fields also have indexes to support future database queries.
+
+The models are maintained in the `models/` directory of their respective backend modules.
+
+**Phase I:** Define the Mongoose schemas and test their initial validation behavior.
+
+**Phase II:** Integrate the schemas with MongoDB, implement persistent storage, enforce relationships, and apply backend security and authorization rules.
+
+## 13. Expected Project Outcome
 
 The completed FinMarket-Enterprise platform should demonstrate how a financial advisory business can manage prospective clients, organize campaigns, automate marketing communications, and monitor client acquisition activities through one centralized web application.
 
@@ -347,7 +372,7 @@ The primary measure of success will be a functional end-to-end business workflow
 
 The project will also demonstrate RESTful API design, data relationships, secure authentication, backend-enforced authorization, frontend integration, and deployment.
 
-## 13. ChatGPT Use Acknowledgement
+## 14. ChatGPT Use Acknowledgement
 
 ChatGPT (OpenAI) was used to generate and structure this `README.md` based on the following project documents:
 
