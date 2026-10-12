@@ -1,0 +1,29 @@
+export default function errorHandler(err, req, res, next) {
+    console.error(err);
+
+    if (err.type === "entity.parse.failed") {
+        return res.status(400).json({
+            success: false,
+            error: {
+                code: "INVALID_JSON",
+                message: "The request contains invalid JSON."
+            }
+        });
+    }
+
+    const status = Number.isInteger(err.statusCode) &&
+        err.statusCode >= 400 &&
+        err.statusCode <= 599
+        ? err.statusCode
+        : 500;
+
+    return res.status(status).json({
+        success: false,
+        error: {
+            code: status === 500 ? "INTERNAL_ERROR" : "REQUEST_ERROR",
+            message: status === 500
+                ? "Internal server error."
+                : err.message
+        }
+    });
+}
