@@ -359,4 +359,3 @@ Both documents are located in the `/docs/projectSpecification/` directory.
 ChatGPT assisted with organizing the project overview, business case definition, proposed functionality, technical architecture, development phases, and team responsibilities into a structured README.
 
 The generated content was based on the provided project specifications and the team's proposed application requirements.
----
