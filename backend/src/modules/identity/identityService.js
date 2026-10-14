@@ -9,6 +9,7 @@ import {
 } from "./identityConstants.js";
 import { promisify } from "node:util";
 import { identityRepository as repository } from "./identityRepository.js";
+import { Types } from "mongoose";
 
 const scrypt = promisify(scryptCallback);
 
@@ -220,6 +221,9 @@ export const identityService = {
     },
 
     getAdvisor(id) {
+        if (!Types.ObjectId.isValid(id)) {
+            throw httpError(400, "Invalid advisor ID.");
+        }
         const profile = repository.findAdvisorById(id);
 
         if (!profile || !profile.isPublic) {
@@ -230,6 +234,10 @@ export const identityService = {
     },
 
     updateAdvisorProfile(id, data = {}) {
+        if (!Types.ObjectId.isValid(id)) {
+            throw httpError(400, "Invalid advisor ID.");
+        }
+
         const profile = repository.findAdvisorById(id);
 
         if (!profile) {

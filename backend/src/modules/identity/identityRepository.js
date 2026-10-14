@@ -1,4 +1,4 @@
-import { randomUUID } from "node:crypto";
+import { Types } from "mongoose";
 
 const users = [];
 const advisorProfiles = [];
@@ -6,8 +6,8 @@ const advisorProfiles = [];
 export const identityRepository = {
     createUser(data) {
         const user = {
-            id: randomUUID(),
             ...data,
+            id: new Types.ObjectId().toString(),
             isActive: true,
             createdAt: new Date().toISOString()
         };
@@ -30,8 +30,8 @@ export const identityRepository = {
 
     createAdvisorProfile(data) {
         const profile = {
-            id: randomUUID(),
             ...data,
+            id: new Types.ObjectId().toString(),
             createdAt: new Date().toISOString()
         };
 
