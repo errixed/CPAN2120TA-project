@@ -4,7 +4,10 @@ import {
     advisorRoutes
 } from "../modules/identity/identityRoutes.js";
 
+import leadRoutes from "../modules/leads/leadRoutes.js";
+
 const router = Router();
+router.use("/leads", leadRoutes);
 
 router.get("/health", (req, res) => {
     return res.status(200).json({
