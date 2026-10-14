@@ -1,4 +1,4 @@
-import * as deliveryRepo from '../repositories/delivery.repository.js';
+import * as deliveryRepo from '../repositories/deliveryRepository.js';
 
 export const queueDelivery = async (deliveryData) => {
     // intake request data and forward it to create a new record. currently default to "PENDING" status.

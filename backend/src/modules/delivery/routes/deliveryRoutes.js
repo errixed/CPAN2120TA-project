@@ -1,5 +1,5 @@
 import express from 'express';
-import * as deliveryController from '../controllers/delivery.controller.js';
+import * as deliveryController from '../controllers/deliveryController.js';
 
 // import Express, create and dedicate a router object. in a short sense, handles all the traffic meant for the delivery module.
 const router = express.Router();

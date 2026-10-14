@@ -1,4 +1,5 @@
 import { Router } from "express";
+import deliveryRoutes from "../modules/delivery/routes/deliveryRoutes.js";
 
 const router = Router();
 
@@ -12,5 +13,8 @@ router.get("/health", (req, res) => {
         }
     });
 });
+
+// Wire up the delivery module routes
+router.use("/deliveries", deliveryRoutes);
 
 export default router;

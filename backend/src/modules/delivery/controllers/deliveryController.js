@@ -1,4 +1,4 @@
-import * as deliveryService from '../services/delivery.service.js';
+import * as deliveryService from '../services/deliveryService.js';
 
 export const queueDelivery = async (req, res) => {
     try {
