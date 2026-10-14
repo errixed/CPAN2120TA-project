@@ -41,11 +41,11 @@ function find(id) {
     return lead;
 }
 
-function recordConsent(document, input, now) {
+function recordConsent(document, input, now, previouslyConsented = false) {
     if (input.marketingConsent === true) {
         document.consentRecordedAt = now;
         document.unsubscribedAt = null;
-    } else if (input.marketingConsent === false) {
+    } else if (input.marketingConsent === false && previouslyConsented) {
         document.unsubscribedAt = now;
     }
 }
@@ -65,7 +65,7 @@ export function updateLead(id, input) {
     validateInput(input, true);
     const now = new Date();
     const document = new Lead({ ...existing, ...input, updatedAt: now });
-    recordConsent(document, input, now);
+    recordConsent(document, input, now, existing.marketingConsent);
     return repository.update(existing._id, validateDocument(document));
 }
 

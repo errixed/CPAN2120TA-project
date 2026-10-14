@@ -68,3 +68,19 @@ test("invalid updates do not mutate stored records; health remains available", a
     assert.deepEqual((await request(path)).body.data, created.body.data);
     assert.equal((await request("/health")).status, 200);
 });
+
+ test("only active consent withdrawal records an unsubscribe timestamp", async () => {
+    const created = await request("/leads", "POST", { ...sample, email: "never@example.com", marketingConsent: false });
+    assert.equal(created.status, 201);
+    assert.equal(created.body.data.unsubscribedAt, null);
+    const path = `/leads/${created.body.data._id}`;
+    const never = await request(path, "PATCH", { marketingConsent: false });
+    assert.equal(never.body.data.unsubscribedAt, null);
+    await request(path, "PATCH", { marketingConsent: true });
+    const withdrawn = await request(path, "PATCH", { marketingConsent: false });
+    assert.ok(withdrawn.body.data.unsubscribedAt);
+    const repeated = await request(path, "PATCH", { marketingConsent: false });
+    assert.equal(repeated.body.data.unsubscribedAt, withdrawn.body.data.unsubscribedAt);
+    const regranted = await request(path, "PATCH", { marketingConsent: true });
+    assert.equal(regranted.body.data.unsubscribedAt, null);
+});

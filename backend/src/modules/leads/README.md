@@ -25,7 +25,7 @@ Statuses: `NEW`, `CONTACTED`, `CONSULTATION_REQUESTED`, `CONVERTED`. Default: `N
 
 Sources: `WEBSITE`, `FACEBOOK`, `MANUAL`, `OTHER`. Default: `MANUAL`.
 
-Consent defaults to false. Explicit consent records a server timestamp and clears `unsubscribedAt`. Explicit withdrawal sets `unsubscribedAt`, preserving the last consent timestamp. Clients cannot supply consent timestamps or record IDs. No marketing messages are sent by this module.
+Consent defaults to false. Explicit consent records a server timestamp and clears `unsubscribedAt`. Only a change from existing consent true to false sets `unsubscribedAt`, preserving the last consent timestamp. Leads who never consented keep `unsubscribedAt` null; repeated false updates preserve the original withdrawal timestamp. Clients cannot supply consent timestamps or record IDs. No marketing messages are sent by this module.
 
 ## Example
 
