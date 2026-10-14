@@ -227,5 +227,41 @@ export const identityService = {
         }
 
         return publicAdvisor(profile);
+    },
+
+    updateAdvisorProfile(id, data = {}) {
+        const profile = repository.findAdvisorById(id);
+
+        if (!profile) {
+            throw httpError(404, "Advisor not found.");
+        }
+
+        if (!data || typeof data !== "object" ||
+            Array.isArray(data)) {
+            throw httpError(400, "Invalid profile data.");
+        }
+
+        const allowedFields = [
+            "specialties",
+            "consultationTypes",
+            "bio",
+            "isPublic"
+        ];
+
+        const fields = Object.keys(data);
+
+        if (fields.length === 0 ||
+            fields.some(field => !allowedFields.includes(field))) {
+            throw httpError(400, "Invalid profile fields.");
+        }
+
+        const changes = validateProfile(data);
+
+        const updatedProfile = repository.updateAdvisorProfile(
+            id,
+            changes
+        );
+
+        return publicAdvisor(updatedProfile);
     }
 };

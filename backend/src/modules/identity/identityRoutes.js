@@ -23,3 +23,8 @@ advisorRoutes.get(
     "/:id",
     identityController.getAdvisor
 );
+
+advisorRoutes.patch(
+    "/:id",
+    identityController.updateAdvisorProfile
+);

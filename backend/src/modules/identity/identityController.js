@@ -36,5 +36,17 @@ export const identityController = {
             success: true,
             data: advisor
         });
-    }
+    },
+
+    updateAdvisorProfile(req, res) {
+    const advisor = identityService.updateAdvisorProfile(
+        req.params.id,
+        req.body
+    );
+
+    return res.status(200).json({
+        success: true,
+        data: advisor
+    });
+}
 };
