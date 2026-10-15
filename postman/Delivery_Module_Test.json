@@ -1,0 +1,41 @@
+{
+    "info": {
+        "name": "FinMarket - Delivery Module",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "1. Queue a Delivery Job",
+            "request": {
+                "method": "POST",
+                "header": [
+                    { "key": "Content-Type", "value": "application/json" }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"campaignId\": \"camp-101\",\n  \"leadId\": \"lead-999\",\n  \"channel\": \"EMAIL\",\n  \"content\": {\n    \"subject\": \"Retirement Planning\",\n    \"body\": \"Are you ready for your consultation?\"\n  }\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/v1/deliveries",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "3000",
+                    "path": ["api", "v1", "deliveries"]
+                }
+            }
+        },
+        {
+            "name": "2. Get Delivery History",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:3000/api/v1/deliveries",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "3000",
+                    "path": ["api", "v1", "deliveries"]
+                }
+            }
+        }
+    ]
+}

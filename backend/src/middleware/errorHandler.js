@@ -11,7 +11,11 @@ export default function errorHandler(err, req, res, next) {
         });
     }
 
-    const status = Number.isInteger(err.statusCode) &&
+    const mongooseValidationError = err.name === "ValidationError" ||
+        err.name === "CastError";
+    const status = mongooseValidationError
+        ? 400
+        : Number.isInteger(err.statusCode) &&
         err.statusCode >= 400 &&
         err.statusCode <= 599
         ? err.statusCode
@@ -20,7 +24,9 @@ export default function errorHandler(err, req, res, next) {
     return res.status(status).json({
         success: false,
         error: {
-            code: status === 500 ? "INTERNAL_ERROR" : "REQUEST_ERROR",
+            code: status === 500
+                ? "INTERNAL_ERROR"
+                : err.code ?? (mongooseValidationError ? "INVALID_REQUEST" : "REQUEST_ERROR"),
             message: status === 500
                 ? "Internal server error."
                 : err.message
