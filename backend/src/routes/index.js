@@ -1,7 +1,14 @@
 import { Router } from "express";
-import deliveryRoutes from "../modules/delivery/routes/deliveryRoutes.js";
+import {
+    authRoutes,
+    advisorRoutes
+} from "../modules/identity/identityRoutes.js";
+import deliveryRoutes from "../modules/delivery/routes/deliveryRoutes.js"
+
+import leadRoutes from "../modules/leads/leadRoutes.js";
 
 const router = Router();
+router.use("/leads", leadRoutes);
 
 router.get("/health", (req, res) => {
     return res.status(200).json({
@@ -14,7 +21,8 @@ router.get("/health", (req, res) => {
     });
 });
 
-// Wire up the delivery module routes
+router.use("/auth", authRoutes);
+router.use("/advisors", advisorRoutes);
 router.use("/deliveries", deliveryRoutes);
 
 export default router;
