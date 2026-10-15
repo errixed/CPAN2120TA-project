@@ -386,3 +386,6 @@ Both documents are located in the `/docs/projectSpecification/` directory.
 ChatGPT assisted with organizing the project overview, business case definition, proposed functionality, technical architecture, development phases, and team responsibilities into a structured README.
 
 The generated content was based on the provided project specifications and the team's proposed application requirements.
+## Member 2 Phase I API handoff
+
+Lead Management API routes are implemented with validated in-memory records. See [the module README](backend/src/modules/leads/README.md) for setup, request contracts, tests and later-phase boundaries. Import [the Postman collection](postman/leads-phase1.postman_collection.json) for example requests.
