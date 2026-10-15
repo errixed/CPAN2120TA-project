@@ -3,6 +3,7 @@ import {
     authRoutes,
     advisorRoutes
 } from "../modules/identity/identityRoutes.js";
+import deliveryRoutes from "../modules/delivery/routes/deliveryRoutes.js"
 
 import leadRoutes from "../modules/leads/leadRoutes.js";
 
@@ -22,5 +23,6 @@ router.get("/health", (req, res) => {
 
 router.use("/auth", authRoutes);
 router.use("/advisors", advisorRoutes);
+router.use("/deliveries", deliveryRoutes);
 
 export default router;
