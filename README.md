@@ -307,23 +307,25 @@ Once running, the health endpoint can be accessed at:
 
 ### Frontend
 
-The frontend will be initialized and implemented during Phase III using React.
+The React campaign workspace is available in `frontend/`. Run `npm install` and
+`npm run dev` from that directory. Campaign endpoint usage, status rules, setup,
+and an example response are documented in [docs/campaigns.md](docs/campaigns.md).
 
 ### Database
 
-MongoDB integration will be implemented during Phase II using Mongoose.
+The campaign module uses Mongoose persistence. Set `MONGO_URI` before starting
+the backend; other modules are still under development.
 
 ## 10. Current Development Status
 
-**Current Phase: Phase I — Backend Foundation**
+**Current Phase: Campaign feature phases I–III implemented; remaining modules are in progress.**
 
-The initial backend directory structure has been created, including the five business modules and placeholder files for the eight planned database models.
-
-The shared Express application, central configuration, health endpoint, error-handling middleware, and request logging middleware have been prepared.
-
-The remaining Phase I tasks include completing the initial Mongoose schemas, implementing the business API routes, and verifying repository initialization and team contributions.
-
-**Note:** Creating empty model or route files does not constitute implementing the corresponding data models or APIs.
+The campaigns module supports persistent campaign creation, listing, editing,
+template retrieval, eligible-audience previews, and guarded campaign status
+transitions. Its React screens include the campaign list/editor, audience
+preview, and reusable template browser. See [docs/campaigns.md](docs/campaigns.md)
+for endpoint examples, business rules, and local setup instructions. Other
+business modules and end-to-end authentication are not implied to be complete.
 
 ## 11. Project Scope and Limitations
 
