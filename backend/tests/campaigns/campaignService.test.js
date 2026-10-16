@@ -1,8 +1,21 @@
 import assert from "node:assert/strict";
-import test from "node:test";
+import { test, before } from "node:test";
 import { createCampaignService } from "../../src/modules/campaigns/campaignService.js";
+import { randomUUID } from "node:crypto";
+import { identityService } from "../../src/modules/identity/identityService.js";
 
-const advisorId = "507f1f77bcf86cd799439011";
+let advisorId;
+
+before(async () => {
+    const result = await identityService.register({
+        name: "Campaign Test Advisor",
+        email: `campaign-${randomUUID()}@example.com`,
+        password: "TestPassword123!",
+        role: "ADVISOR"
+    });
+
+    advisorId = result.advisorProfile.id;
+});
 const campaignId = "507f1f77bcf86cd799439012";
 const templateId = "507f1f77bcf86cd799439013";
 const futureDate = new Date(Date.now() + 60_000);

@@ -4,6 +4,7 @@ import AutomationRule from "./models/AutomationRule.js";
 import ActivityEvent from "./models/ActivityEvent.js";
 import * as repository from "./automationRepository.js";
 import { buildSimulatedActions } from "./eventProcessor.js";
+import { identityRepository } from "../identity/identityRepository.js";
 
 // Allowed values come from the Mongoose schemas so they never drift apart.
 const TRIGGERS = AutomationRule.schema.path("trigger").enumValues;
@@ -28,6 +29,13 @@ export const createRule = async (body = {}) => {
     const problems = [];
 
     if (!isId(body.ownerId)) problems.push("ownerId must be a valid id.");
+
+    if (
+        isId(body.ownerId) &&
+        !identityRepository.findUserById(body.ownerId.toLowerCase())
+    ) {
+        problems.push("ownerId does not reference an existing user.");
+    }
 
     const name = typeof body.name === "string" ? body.name.trim() : "";
     if (name.length < 3 || name.length > 150) {
@@ -66,7 +74,9 @@ export const createRule = async (body = {}) => {
     return repository.createRule({
         ownerId: body.ownerId,
         name,
-        description: body.description?.trim() ?? "",
+        description: typeof body.description === "string"
+            ? body.description.trim()
+            : "",
         trigger: body.trigger,
         action: body.action,
         campaignId: body.campaignId ?? null,

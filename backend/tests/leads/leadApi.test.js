@@ -1,17 +1,47 @@
 import { test, before, after } from "node:test";
 import assert from "node:assert/strict";
 import app from "../../src/app.js";
+import { randomUUID } from "node:crypto";
+
 let server, base;
 before(async () => {
-    server = await new Promise(resolve => { const s = app.listen(0, "127.0.0.1", () => resolve(s)); });
+    server = await new Promise(resolve => {
+        const s = app.listen(0, "127.0.0.1", () => resolve(s));
+    });
+
     base = `http://127.0.0.1:${server.address().port}/api/v1`;
+
+    const response = await fetch(`${base}/auth/register`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: "Lead Test Advisor",
+            email: `lead-${randomUUID()}@example.com`,
+            password: "TestPassword123!",
+            role: "ADVISOR"
+        })
+    });
+
+    assert.equal(response.status, 201);
+
+    const result = await response.json();
+
+    sample.advisorId = result.data.advisorProfile.id;
 });
 after(() => new Promise(resolve => server.close(resolve)));
 async function request(path, method = "GET", body) {
     const response = await fetch(base + path, { method, headers: { "Content-Type": "application/json" }, ...(body !== undefined ? { body: JSON.stringify(body) } : {}) });
     return { status: response.status, body: await response.json() };
 }
-const sample = { advisorId: "507f1f77bcf86cd799439011", name: "Jane Example", email: " JANE@EXAMPLE.COM ", interest: "Retirement planning" };
+
+const sample = {
+    advisorId: null,
+    name: "Jane Example",
+    email: " JANE@EXAMPLE.COM ",
+    interest: "Retirement planning"
+};
 
 test("create, normalize, read, filter and update leads through HTTP", async () => {
     const created = await request("/leads", "POST", { ...sample, marketingConsent: true });

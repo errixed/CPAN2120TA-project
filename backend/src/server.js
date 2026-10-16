@@ -11,7 +11,7 @@ if (!Number.isInteger(config.PORT) ||
 if (config.MONGO_URI) {
     await connectDatabase(config.MONGO_URI);
 } else {
-    console.warn("MONGO_URI is not configured; database-backed endpoints will be unavailable.");
+    console.warn("MONGO_URI is not configured; Running with Phase I in-memory storage.");
 }
 
 app.listen(config.PORT, () => {

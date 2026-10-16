@@ -61,6 +61,15 @@ export function createCampaignController(service) {
             })
         ),
 
+        createTemplate: async (req, res) => sendData(
+            res,
+            await service.createTemplate({
+                ...req.body,
+                advisorId: advisorIdFromRequest(req, { allowBody: true })
+            }),
+            201
+        ),
+
         listTemplates: async (req, res) => sendData(
             res,
             await service.listTemplates({

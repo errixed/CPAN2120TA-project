@@ -7,5 +7,6 @@ const router = express.Router();
 // map the specific HTTP methoods on the basis of URL in order to match controller functions
 router.post('/', deliveryController.queueDelivery);
 router.get('/', deliveryController.getDeliveryHistory);
+router.post("/:id/process", deliveryController.processDelivery);
 
 export default router;

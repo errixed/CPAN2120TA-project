@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
 import Lead from "./models/Lead.js";
 import repository from "./leadRepository.js";
+import { identityRepository } from "../identity/identityRepository.js";
 
 const fields = ["advisorId", "name", "email", "phone", "interest", "status", "marketingConsent", "source", "notes"];
 const statuses = Lead.schema.path("status").enumValues;
@@ -10,6 +10,21 @@ function fail(message, statusCode = 400) {
     const error = new Error(message);
     error.statusCode = statusCode;
     throw error;
+}
+
+function requireUniqueEmail(advisorId, email, excludeId = null) {
+    const normalizedEmail = email.trim().toLowerCase();
+    const normalizedAdvisorId = String(advisorId).toLowerCase();
+
+    const duplicate = repository.findAll().some(lead =>
+        String(lead.advisorId).toLowerCase() === normalizedAdvisorId &&
+        lead.email.trim().toLowerCase() === normalizedEmail &&
+        String(lead._id) !== String(excludeId)
+    );
+
+    if (duplicate) {
+        fail("A lead with this email already exists for this advisor.", 409);
+    }
 }
 
 function validateInput(input, partial = false) {
@@ -41,9 +56,32 @@ function find(id) {
     return lead;
 }
 
+function requireExistingAdvisor(advisorId) {
+    if (!advisorId) {
+        fail("advisorId is required.");
+    }
+
+    if (!/^[a-f0-9]{24}$/i.test(advisorId)) {
+        fail("advisorId must be a 24-character ObjectId.");
+    }
+
+    const advisor = identityRepository.findAdvisorById(
+        advisorId.toLowerCase()
+    );
+
+    if (!advisor) {
+        fail("Advisor not found.", 404);
+    }
+
+    return advisor;
+}
+
 function recordConsent(document, input, now, previouslyConsented = false) {
     if (input.marketingConsent === true) {
-        document.consentRecordedAt = now;
+        if (!previouslyConsented) {
+            document.consentRecordedAt = now;
+        }
+
         document.unsubscribedAt = null;
     } else if (input.marketingConsent === false && previouslyConsented) {
         document.unsubscribedAt = now;
@@ -52,10 +90,13 @@ function recordConsent(document, input, now, previouslyConsented = false) {
 
 export function createLead(input) {
     validateInput(input);
+    requireExistingAdvisor(input.advisorId);
     const now = new Date();
     const document = new Lead({ ...input, createdAt: now, updatedAt: now });
     recordConsent(document, input, now);
-    return repository.create(validateDocument(document));
+    const validated = validateDocument(document);
+    requireUniqueEmail(validated.advisorId, validated.email);
+    return repository.create(validated);
 }
 
 export function getLead(id) { return find(id); }
@@ -63,10 +104,25 @@ export function getLead(id) { return find(id); }
 export function updateLead(id, input) {
     const existing = find(id);
     validateInput(input, true);
+    if (
+        input.advisorId !== undefined &&
+        input.advisorId.toLowerCase() !== existing.advisorId.toLowerCase()
+    ) {
+        fail("A lead cannot be reassigned to another advisor.");
+    }
     const now = new Date();
     const document = new Lead({ ...existing, ...input, updatedAt: now });
     recordConsent(document, input, now, existing.marketingConsent);
-    return repository.update(existing._id, validateDocument(document));
+
+    const validated = validateDocument(document);
+
+    requireUniqueEmail(
+        validated.advisorId,
+        validated.email,
+        existing._id
+    );
+
+    return repository.update(existing._id, validated);
 }
 
 export function listLeads(query) {
@@ -93,7 +149,14 @@ export function listLeads(query) {
     if (query.status) leads = leads.filter(x => x.status === query.status);
     if (query.source) leads = leads.filter(x => x.source === query.source);
     if (query.marketingConsent !== undefined) leads = leads.filter(x => x.marketingConsent === (query.marketingConsent === "true"));
-    if (query.interest) leads = leads.filter(x => x.interest.toLowerCase().includes(query.interest.toLowerCase()));
+    if (query.interest) {
+        const interest = query.interest.toLowerCase();
+
+        leads = leads.filter(lead =>
+            typeof lead.interest === "string" &&
+            lead.interest.toLowerCase().includes(interest)
+        );
+    }
     if (query.search) leads = leads.filter(x => `${x.name} ${x.email}`.toLowerCase().includes(query.search.toLowerCase()));
     return { data: leads.slice((page - 1) * limit, page * limit), pagination: { page, limit, total: leads.length, totalPages: Math.ceil(leads.length / limit) } };
 }

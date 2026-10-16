@@ -59,6 +59,7 @@ const cases = [
     {
         model: DeliveryJob,
         data: {
+            advisorId: id,
             campaignId: id,
             leadId: id,
             channel: "EMAIL",
@@ -94,14 +95,13 @@ let failed = 0;
 
 for (const { model, data } of cases) {
     const document = new model(data);
-    const error = document.validateSync();
-
-    if (error) {
+    try {
+        await document.validate();
+        console.log(`PASS: ${model.modelName}`);
+    } catch (error) {
         failed++;
         console.error(`FAIL: ${model.modelName}`);
         console.error(error.message);
-    } else {
-        console.log(`PASS: ${model.modelName}`);
     }
 }
 

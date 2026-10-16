@@ -1,0 +1,7565 @@
+{
+	"id": "817ee37b-4fc6-4972-a064-13c129da3017",
+	"name": "FinMarket-Enterprise | Phase I Complete API & Integration Tests",
+	"timestamp": "2026-10-16T01:37:02.122Z",
+	"collection_id": "58870788-5a016e3f-cfbe-49c6-9025-7c54f72c6cd8",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 603,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2026-10-16T01:36:59.958Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "59f9aa2f-d7bd-4eae-84ed-9e4fba5985ab",
+			"name": "Health — API boots",
+			"url": "http://localhost:3001/api/v1/health",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"health OK": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"health OK": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"health OK": true
+				}
+			]
+		},
+		{
+			"id": "2f0f5171-9c1a-400a-b1b1-159b8810bf15",
+			"name": "Health — repeated read",
+			"url": "http://localhost:3001/api/v1/health",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "d5a6bbd7-4b81-44c6-bd56-a5045f7891c5",
+			"name": "Register Advisor A + profile",
+			"url": "http://localhost:3001/api/v1/auth/register",
+			"time": 31,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true,
+				"advisor profile created": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"advisor profile created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				31
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true,
+					"advisor profile created": true
+				}
+			]
+		},
+		{
+			"id": "483aa3ef-e2ce-4e15-afe7-273117be10df",
+			"name": "Register Advisor B (for isolation)",
+			"url": "http://localhost:3001/api/v1/auth/register",
+			"time": 24,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "f27995a5-bde9-40ce-8b7b-9c22b0180f30",
+			"name": "Register Marketing Specialist",
+			"url": "http://localhost:3001/api/v1/auth/register",
+			"time": 27,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true,
+				"no advisor profile for marketer": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"no advisor profile for marketer": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				27
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true,
+					"no advisor profile for marketer": true
+				}
+			]
+		},
+		{
+			"id": "5959cb46-32f7-4154-8c6d-790d51494017",
+			"name": "Login Advisor A (demo tokenless)",
+			"url": "http://localhost:3001/api/v1/auth/login",
+			"time": 24,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"demo no-token auth": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"demo no-token auth": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"demo no-token auth": true
+				}
+			]
+		},
+		{
+			"id": "49133154-dcbd-445d-8000-d390539c3931",
+			"name": "List public advisors",
+			"url": "http://localhost:3001/api/v1/advisors",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"array of advisors": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"array of advisors": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"array of advisors": true
+				}
+			]
+		},
+		{
+			"id": "f1cce29e-d21a-4801-8f01-a496e983d236",
+			"name": "Get Advisor A",
+			"url": "http://localhost:3001/api/v1/advisors/6ad17fbc020e08d8d9551ac7",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"id matches": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"id matches": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"id matches": true
+				}
+			]
+		},
+		{
+			"id": "aa9cc1f9-f123-4489-8d44-1eeb900e42b1",
+			"name": "Update Advisor A profile",
+			"url": "http://localhost:3001/api/v1/advisors/6ad17fbc020e08d8d9551ac7",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "031cb0c5-d589-4b3f-808e-560a5ddde453",
+			"name": "Duplicate registration email ->409",
+			"url": "http://localhost:3001/api/v1/auth/register",
+			"time": 1,
+			"responseCode": {
+				"code": 409,
+				"name": "Conflict"
+			},
+			"tests": {
+				"HTTP 409": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 409": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 409": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "55069b1c-6aff-4603-8ab5-4eb8a8610e2d",
+			"name": "Invalid login password ->401",
+			"url": "http://localhost:3001/api/v1/auth/login",
+			"time": 27,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"HTTP 401": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				27
+			],
+			"allTests": [
+				{
+					"HTTP 401": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "ce3e5c8d-3ff2-46b5-a509-2def35053683",
+			"name": "Missing login password ->400",
+			"url": "http://localhost:3001/api/v1/auth/login",
+			"time": 1,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "c3b1b240-d62f-4dd0-a303-08782c34c355",
+			"name": "Register too-short password ->400",
+			"url": "http://localhost:3001/api/v1/auth/register",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "3b9c3af2-2234-4022-831b-bb9a78222230",
+			"name": "Register invalid email ->400",
+			"url": "http://localhost:3001/api/v1/auth/register",
+			"time": 1,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "5f48d336-cddd-4f12-95d8-14072032281e",
+			"name": "Register forbidden ADMIN role ->400",
+			"url": "http://localhost:3001/api/v1/auth/register",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "994fc5ea-a9b3-4816-a2cc-0a0b560d4203",
+			"name": "Non-advisor with profile ->400",
+			"url": "http://localhost:3001/api/v1/auth/register",
+			"time": 1,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "5e7b3e0f-34b5-4a2d-b355-0a6d65877816",
+			"name": "Invalid consultation type ->400",
+			"url": "http://localhost:3001/api/v1/advisors/6ad17fbc020e08d8d9551ac7",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "f06f8fe5-72a3-400a-b18a-700c664f9b53",
+			"name": "Advisor PATCH unknown field ->400",
+			"url": "http://localhost:3001/api/v1/advisors/6ad17fbc020e08d8d9551ac7",
+			"time": 1,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "851892a0-4b66-427c-816c-c999da03508e",
+			"name": "Advisor PATCH empty ->400",
+			"url": "http://localhost:3001/api/v1/advisors/6ad17fbc020e08d8d9551ac7",
+			"time": 1,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "2854b8a3-42f3-4a20-9103-4872bf4aeec0",
+			"name": "Advisor lookup malformed ID ->400",
+			"url": "http://localhost:3001/api/v1/advisors/bad-id",
+			"time": 1,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "32e46b71-756d-4528-8d88-1e7f2e88318b",
+			"name": "Advisor lookup missing ID ->404",
+			"url": "http://localhost:3001/api/v1/advisors/507f1f77bcf86cd799439011",
+			"time": 1,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"HTTP 404": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 404": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "b1034348-0bc4-4956-b1b1-746f6233de27",
+			"name": "Create consenting lead A",
+			"url": "http://localhost:3001/api/v1/leads",
+			"time": 2,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true,
+				"consent true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"consent true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true,
+					"consent true": true
+				}
+			]
+		},
+		{
+			"id": "c4daa38e-262f-422d-886e-c94b82340aec",
+			"name": "Create non-consenting lead",
+			"url": "http://localhost:3001/api/v1/leads",
+			"time": 2,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "8a6e3b20-139a-465b-9978-4ad281232b25",
+			"name": "Create lead with different interest",
+			"url": "http://localhost:3001/api/v1/leads",
+			"time": 2,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "4b444bab-fbd1-4b24-982d-91ca3c741a22",
+			"name": "Create consenting second lead",
+			"url": "http://localhost:3001/api/v1/leads",
+			"time": 2,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "2bcb4882-c55d-4caf-ac2e-ef1cb969c449",
+			"name": "Create advisor B lead",
+			"url": "http://localhost:3001/api/v1/leads",
+			"time": 2,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "681694e5-edcf-4cf7-b3e6-2c83405a31f7",
+			"name": "List leads",
+			"url": "http://localhost:3001/api/v1/leads",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"paginated": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"paginated": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"paginated": true
+				}
+			]
+		},
+		{
+			"id": "d894b4da-4fc1-4c45-86d0-b8a1167fef88",
+			"name": "List leads by advisor",
+			"url": "http://localhost:3001/api/v1/leads?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"only advisor A": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"only advisor A": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"only advisor A": true
+				}
+			]
+		},
+		{
+			"id": "2d15a350-74eb-481e-b38f-47bdbe35e3af",
+			"name": "Filter consenting NEW leads",
+			"url": "http://localhost:3001/api/v1/leads?advisorId=6ad17fbc020e08d8d9551ac7&marketingConsent=true&status=NEW",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "c8a7f8d7-861d-4c3d-8d3e-d57b116368f2",
+			"name": "Search leads by name",
+			"url": "http://localhost:3001/api/v1/leads?search=Postman",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "20a4d85a-8942-4449-ad05-841e6aa7865b",
+			"name": "Interest partial match",
+			"url": "http://localhost:3001/api/v1/leads?interest=retirement",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "335874dd-b1b4-44b9-8544-e3015440a7fb",
+			"name": "Pagination page 1 limit 2",
+			"url": "http://localhost:3001/api/v1/leads?page=1&limit=2",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"limit <=2": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"limit <=2": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"limit <=2": true
+				}
+			]
+		},
+		{
+			"id": "8094d628-5b1f-4c53-b249-17aa3fec8fc4",
+			"name": "Get Lead A",
+			"url": "http://localhost:3001/api/v1/leads/6ad17fbc020e08d8d9551acb",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "9eaf3d7d-d813-4307-924e-c162dfaa561f",
+			"name": "Update lead name and status",
+			"url": "http://localhost:3001/api/v1/leads/6ad17fbc020e08d8d9551acb",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "6fb88b84-504c-4c33-beb3-7ef48495ddab",
+			"name": "Duplicate email same advisor ->409",
+			"url": "http://localhost:3001/api/v1/leads",
+			"time": 3,
+			"responseCode": {
+				"code": 409,
+				"name": "Conflict"
+			},
+			"tests": {
+				"HTTP 409": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 409": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"HTTP 409": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "b962ab86-fce8-4144-9876-4f8573216794",
+			"name": "Duplicate email via update ->409",
+			"url": "http://localhost:3001/api/v1/leads/6ad17fbc020e08d8d9551ace",
+			"time": 3,
+			"responseCode": {
+				"code": 409,
+				"name": "Conflict"
+			},
+			"tests": {
+				"HTTP 409": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 409": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"HTTP 409": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "6d78af20-3894-42ee-92c6-3daa3e04fed4",
+			"name": "Reassign Lead A to advisor B ->400",
+			"url": "http://localhost:3001/api/v1/leads/6ad17fbc020e08d8d9551acb",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "5d7862a3-b926-40ad-8198-dc3cc4c58ddf",
+			"name": "Create lead nonexistent advisor ->404",
+			"url": "http://localhost:3001/api/v1/leads",
+			"time": 2,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"HTTP 404": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 404": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "bf1e7858-3c28-4130-83f4-732759ab00f3",
+			"name": "Invalid lead email ->400",
+			"url": "http://localhost:3001/api/v1/leads",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "9e417945-43c1-46aa-919c-0cecb6bf793f",
+			"name": "marketingConsent string ->400",
+			"url": "http://localhost:3001/api/v1/leads",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "feeaf6ff-24ee-4fb6-84e7-7f9b123e72f3",
+			"name": "Invalid lead status ->400",
+			"url": "http://localhost:3001/api/v1/leads",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "3b1064f0-3ed6-4e71-8957-889d238d92fe",
+			"name": "Missing lead required name ->400",
+			"url": "http://localhost:3001/api/v1/leads",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "e9b40e0c-c8d7-4703-9c74-9ed53b1c4b24",
+			"name": "Unsupported lead property ->400",
+			"url": "http://localhost:3001/api/v1/leads/6ad17fbc020e08d8d9551acb",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "92a1c492-ccd1-4aeb-8e59-e67dbedcc1cb",
+			"name": "Empty update ->400",
+			"url": "http://localhost:3001/api/v1/leads/6ad17fbc020e08d8d9551acb",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "2d366749-afcc-417c-ac97-c9fb60be4984",
+			"name": "Missing Lead ID ->404",
+			"url": "http://localhost:3001/api/v1/leads/507f1f77bcf86cd799439011",
+			"time": 2,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"HTTP 404": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 404": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "e3a89200-1357-4938-85cd-c0615461fe68",
+			"name": "Malformed Lead ID ->400",
+			"url": "http://localhost:3001/api/v1/leads/bad-id",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "17e7f9f4-93bd-4735-9cee-e7345fc97a41",
+			"name": "Invalid limit 0 ->400",
+			"url": "http://localhost:3001/api/v1/leads?limit=0",
+			"time": 1,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "08fc6eb4-9f96-464a-9d7f-71194b1414de",
+			"name": "Limit >100 ->400",
+			"url": "http://localhost:3001/api/v1/leads?limit=101",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "09980769-a769-479d-9d30-38796d95e5f3",
+			"name": "Invalid consent filter ->400",
+			"url": "http://localhost:3001/api/v1/leads?marketingConsent=yes",
+			"time": 1,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "88297f8d-8ffc-4bc1-8d39-314e1adc26eb",
+			"name": "Unknown filter ->400",
+			"url": "http://localhost:3001/api/v1/leads?wat=foo",
+			"time": 1,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "6dbb9f74-196b-4c99-9b34-f88248a7fb06",
+			"name": "Create EMAIL template",
+			"url": "http://localhost:3001/api/v1/campaigns/templates",
+			"time": 2,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "6819c66b-0607-4c45-a075-75d9a8fd1949",
+			"name": "Create FACEBOOK template",
+			"url": "http://localhost:3001/api/v1/campaigns/templates",
+			"time": 2,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "4d4539e9-e7e4-421a-b6c3-f33483fd6d38",
+			"name": "Create Advisor B EMAIL template",
+			"url": "http://localhost:3001/api/v1/campaigns/templates",
+			"time": 3,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "efff33a8-bcc6-4a4d-be96-a38161f72db9",
+			"name": "List EMAIL templates",
+			"url": "http://localhost:3001/api/v1/campaigns/templates?advisorId=6ad17fbc020e08d8d9551ac7&channel=EMAIL",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "7d3779d5-8194-4f14-847e-d31e1675da3e",
+			"name": "Retrieve EMAIL template",
+			"url": "http://localhost:3001/api/v1/campaigns/templates/6ad17fbc020e08d8d9551ad5?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "1f2ec79c-ded2-417e-b667-c7e74e39f0d6",
+			"name": "Create EMAIL draft campaign",
+			"url": "http://localhost:3001/api/v1/campaigns",
+			"time": 3,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "caaae4f8-3f24-40ed-8e8a-05e697957864",
+			"name": "Create FACEBOOK draft campaign",
+			"url": "http://localhost:3001/api/v1/campaigns",
+			"time": 2,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "10ceb718-6df1-41ef-a0cf-10115adeef6e",
+			"name": "Create Advisor B draft campaign",
+			"url": "http://localhost:3001/api/v1/campaigns",
+			"time": 3,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "d0fae666-a735-4229-b6f8-6d80baa47f1a",
+			"name": "Create plain draft without template",
+			"url": "http://localhost:3001/api/v1/campaigns",
+			"time": 2,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "5aa24bbf-6b92-41ae-9180-367a8b821742",
+			"name": "Create future scheduled campaign",
+			"url": "http://localhost:3001/api/v1/campaigns",
+			"time": 3,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "eeb834f9-cc95-44a2-a211-bd633a58354b",
+			"name": "List campaigns for advisor A",
+			"url": "http://localhost:3001/api/v1/campaigns?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "5a3021ab-959b-4865-8879-cbdf2198a763",
+			"name": "Filter DRAFT campaigns",
+			"url": "http://localhost:3001/api/v1/campaigns?advisorId=6ad17fbc020e08d8d9551ac7&status=DRAFT",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "b2e5564e-f49e-412d-9772-5c119ffb55e6",
+			"name": "Get EMAIL draft campaign",
+			"url": "http://localhost:3001/api/v1/campaigns/6ad17fbc020e08d8d9551adb?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "ab92b67e-2a2f-4a19-9839-02faf171fcc3",
+			"name": "Preview audience (consent + interests)",
+			"url": "http://localhost:3001/api/v1/campaigns/6ad17fbc020e08d8d9551adb/audience?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"at least 1 eligible": true,
+				"excluded nonconsent": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"at least 1 eligible": {
+					"pass": 1,
+					"fail": 0
+				},
+				"excluded nonconsent": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"at least 1 eligible": true,
+					"excluded nonconsent": true
+				}
+			]
+		},
+		{
+			"id": "31d759ea-be53-495c-ab00-7525fabf4924",
+			"name": "Update campaign title (no status change)",
+			"url": "http://localhost:3001/api/v1/campaigns/6ad17fbc020e08d8d9551adb?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "8c6a8e26-bc34-43fe-a886-3d0cfac99dc1",
+			"name": "Activate EMAIL campaign",
+			"url": "http://localhost:3001/api/v1/campaigns/6ad17fbc020e08d8d9551adb?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"ACTIVE": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"ACTIVE": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"ACTIVE": true
+				}
+			]
+		},
+		{
+			"id": "95230d2c-637c-4d9c-8672-04c827cd9619",
+			"name": "Activate FACEBOOK campaign",
+			"url": "http://localhost:3001/api/v1/campaigns/6ad17fbc020e08d8d9551add?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "f537ea99-954a-4be3-8a57-846a014939c6",
+			"name": "Activate Advisor B EMAIL campaign",
+			"url": "http://localhost:3001/api/v1/campaigns/6ad17fbc020e08d8d9551adf?advisorId=6ad17fbc020e08d8d9551ac9",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "2bd97d96-7213-4872-b750-8467752ef48c",
+			"name": "Reject activation without template ->400",
+			"url": "http://localhost:3001/api/v1/campaigns/6ad17fbc020e08d8d9551ae1?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "ee11e18a-ea20-4c59-8f21-3b34185a6fd1",
+			"name": "Wrong advisor cannot read campaign ->404",
+			"url": "http://localhost:3001/api/v1/campaigns/6ad17fbc020e08d8d9551adb?advisorId=6ad17fbc020e08d8d9551ac9",
+			"time": 2,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"HTTP 404": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 404": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "4e390cce-0343-435f-9933-2ca72bf607d5",
+			"name": "Cross-advisor template rejected ->404",
+			"url": "http://localhost:3001/api/v1/campaigns/6ad17fbc020e08d8d9551ae1?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 2,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"HTTP 404": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 404": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "867c8bf4-5b46-4977-b367-ff3169930284",
+			"name": "Mismatched template channel ->400",
+			"url": "http://localhost:3001/api/v1/campaigns/6ad17fbc020e08d8d9551ae1?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "3d562f54-6f52-4667-9149-20f666fe8b1a",
+			"name": "Invalid campaign strategy ->400",
+			"url": "http://localhost:3001/api/v1/campaigns",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "ca52eefe-5878-4fa7-94aa-cb0d706d97a5",
+			"name": "Campaign unsupported property ->400",
+			"url": "http://localhost:3001/api/v1/campaigns/6ad17fbc020e08d8d9551adb?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "77e783f3-da11-4701-b78b-234cc43c47bf",
+			"name": "Invalid audience status ->400",
+			"url": "http://localhost:3001/api/v1/campaigns/6ad17fbc020e08d8d9551adb?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "667a15a8-b5ef-4596-8bfd-e4795acd5b10",
+			"name": "Empty campaign PATCH ->400",
+			"url": "http://localhost:3001/api/v1/campaigns/6ad17fbc020e08d8d9551adb?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "5d1c582f-d77f-4ecf-a1ff-7885f1d1cdc4",
+			"name": "Missing advisor query ->400",
+			"url": "http://localhost:3001/api/v1/campaigns",
+			"time": 1,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code ADVISOR_ID_REQUIRED": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code ADVISOR_ID_REQUIRED": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code ADVISOR_ID_REQUIRED": true
+				}
+			]
+		},
+		{
+			"id": "0db67a34-6a48-44f9-b475-f2601979a363",
+			"name": "Unknown campaign ID ->404",
+			"url": "http://localhost:3001/api/v1/campaigns/507f1f77bcf86cd799439011?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 1,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"HTTP 404": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code CAMPAIGN_NOT_FOUND": true
+			},
+			"testPassFailCounts": {
+				"HTTP 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code CAMPAIGN_NOT_FOUND": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 404": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code CAMPAIGN_NOT_FOUND": true
+				}
+			]
+		},
+		{
+			"id": "ce6fff50-2e2b-47f7-aba0-5e87eaaf34ee",
+			"name": "Malformed campaign ID ->400",
+			"url": "http://localhost:3001/api/v1/campaigns/bad-id?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "80a03137-f66f-4f0f-becc-e810962c92d7",
+			"name": "Template with unknown advisor ->404",
+			"url": "http://localhost:3001/api/v1/campaigns/templates",
+			"time": 2,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"HTTP 404": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 404": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "27245bad-2ca5-4278-92b0-36ca3f0f277e",
+			"name": "Missing template required name ->400",
+			"url": "http://localhost:3001/api/v1/campaigns/templates",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "ca145282-422c-42d5-b3f6-dd7581a89375",
+			"name": "Wrong advisor cannot read template ->404",
+			"url": "http://localhost:3001/api/v1/campaigns/templates/6ad17fbc020e08d8d9551ad5?advisorId=6ad17fbc020e08d8d9551ac9",
+			"time": 2,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"HTTP 404": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 404": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "17e80e20-286b-446c-9b22-6d7c7aba3a09",
+			"name": "Invalid template channel filter ->400",
+			"url": "http://localhost:3001/api/v1/campaigns/templates?advisorId=6ad17fbc020e08d8d9551ac7&channel=SMS",
+			"time": 1,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "7b34f4ac-ef6f-41c0-bab3-c34e3c7b64ab",
+			"name": "Campaign status illegal COMPLETED -> DRAFT (later after completion)",
+			"url": "http://localhost:3001/api/v1/campaigns/6ad17fbc020e08d8d9551adb?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 1,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "7aff4467-7534-486c-9484-382bdbc42d6f",
+			"name": "Queue EMAIL to consenting eligible lead",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true,
+				"queued PENDING simulated": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"queued PENDING simulated": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true,
+					"queued PENDING simulated": true
+				}
+			]
+		},
+		{
+			"id": "ce3b518d-fcc8-4656-89f7-605b464c7ef1",
+			"name": "Reject identical pending job ->409",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 409,
+				"name": "Conflict"
+			},
+			"tests": {
+				"HTTP 409": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code DUPLICATE_DELIVERY": true
+			},
+			"testPassFailCounts": {
+				"HTTP 409": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code DUPLICATE_DELIVERY": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 409": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code DUPLICATE_DELIVERY": true
+				}
+			]
+		},
+		{
+			"id": "89c6aebc-c72d-4a90-bf67-56356d789654",
+			"name": "Queue separate EMAIL for status-change check",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "e5032a41-ec18-4a11-88b7-6532d839f57a",
+			"name": "Queue future-scheduled EMAIL job",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "be8047fd-6d1a-476b-96d0-ef168a3c571f",
+			"name": "Process scheduled job before due ->409",
+			"url": "http://localhost:3001/api/v1/deliveries/6ad17fbd020e08d8d9551af2/process",
+			"time": 1,
+			"responseCode": {
+				"code": 409,
+				"name": "Conflict"
+			},
+			"tests": {
+				"HTTP 409": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code DELIVERY_NOT_DUE": true
+			},
+			"testPassFailCounts": {
+				"HTTP 409": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code DELIVERY_NOT_DUE": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 409": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code DELIVERY_NOT_DUE": true
+				}
+			]
+		},
+		{
+			"id": "bf5d499d-9a61-4b06-bdff-59ba0a2f3044",
+			"name": "Queue FACEBOOK delivery (no lead)",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "86682bba-682b-42bc-9434-b74121d3a426",
+			"name": "List Delivery history",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"delivery array": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"delivery array": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"delivery array": true
+				}
+			]
+		},
+		{
+			"id": "68822a4b-d074-4a42-8c9c-23c27685fb20",
+			"name": "Filter pending deliveries",
+			"url": "http://localhost:3001/api/v1/deliveries?deliveryStatus=PENDING",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "eeb92a94-423b-4946-bfc1-588dfb1748b5",
+			"name": "Filter by campaign ID",
+			"url": "http://localhost:3001/api/v1/deliveries?campaignId=6ad17fbc020e08d8d9551adb",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "9d61a99c-94b0-49bf-9c63-6c7fd135a6b0",
+			"name": "Reject EMAIL to nonconsenting lead ->403",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"HTTP 403": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code MARKETING_CONSENT_REQUIRED": true
+			},
+			"testPassFailCounts": {
+				"HTTP 403": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code MARKETING_CONSENT_REQUIRED": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 403": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code MARKETING_CONSENT_REQUIRED": true
+				}
+			]
+		},
+		{
+			"id": "3258a848-ac14-49a3-b550-68e55bdc6dc3",
+			"name": "Reject EMAIL outside audience ->403",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"HTTP 403": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code LEAD_NOT_IN_AUDIENCE": true
+			},
+			"testPassFailCounts": {
+				"HTTP 403": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code LEAD_NOT_IN_AUDIENCE": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 403": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code LEAD_NOT_IN_AUDIENCE": true
+				}
+			]
+		},
+		{
+			"id": "fdd6ffb5-18e0-4d74-8e0a-5f3951d60a05",
+			"name": "Reject EMAIL without lead ->400",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code LEAD_ID_REQUIRED": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code LEAD_ID_REQUIRED": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code LEAD_ID_REQUIRED": true
+				}
+			]
+		},
+		{
+			"id": "0d1d97e8-4545-4bed-aaac-a66f60c3417d",
+			"name": "Reject incorrect recipient email ->400",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code RECIPIENT_MISMATCH": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code RECIPIENT_MISMATCH": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code RECIPIENT_MISMATCH": true
+				}
+			]
+		},
+		{
+			"id": "a40f4345-3953-4b8f-842a-32ccd640789a",
+			"name": "Reject campaign channel mismatch ->400",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code CHANNEL_MISMATCH": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code CHANNEL_MISMATCH": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code CHANNEL_MISMATCH": true
+				}
+			]
+		},
+		{
+			"id": "f65c3f0a-079b-47e2-bfb7-0613eac0aab0",
+			"name": "Reject delivery for draft campaign ->400",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code CAMPAIGN_NOT_ACTIVE": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code CAMPAIGN_NOT_ACTIVE": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code CAMPAIGN_NOT_ACTIVE": true
+				}
+			]
+		},
+		{
+			"id": "f84bf189-f6c0-4aa7-9bf7-9570ae119fb7",
+			"name": "Reject nonexistent campaign ->404",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"HTTP 404": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code CAMPAIGN_NOT_FOUND": true
+			},
+			"testPassFailCounts": {
+				"HTTP 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code CAMPAIGN_NOT_FOUND": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 404": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code CAMPAIGN_NOT_FOUND": true
+				}
+			]
+		},
+		{
+			"id": "99825369-a586-414e-9f45-c4a22a169f46",
+			"name": "Reject missing lead ID ->404",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"HTTP 404": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code LEAD_NOT_FOUND": true
+			},
+			"testPassFailCounts": {
+				"HTTP 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code LEAD_NOT_FOUND": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 404": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code LEAD_NOT_FOUND": true
+				}
+			]
+		},
+		{
+			"id": "84eb4105-2adb-4085-af33-25b69d8b0dd7",
+			"name": "Reject cross-advisor ID ->400",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code ADVISOR_MISMATCH": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code ADVISOR_MISMATCH": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code ADVISOR_MISMATCH": true
+				}
+			]
+		},
+		{
+			"id": "93b57995-b19e-494b-a9d2-158141affd23",
+			"name": "Reject foreign lead on campaign ->400",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code ADVISOR_MISMATCH": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code ADVISOR_MISMATCH": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code ADVISOR_MISMATCH": true
+				}
+			]
+		},
+		{
+			"id": "d5dabea2-6b2b-41c5-845d-287cc1eb991f",
+			"name": "Reject unsupported channel ->400",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "af47f361-f2e0-4713-a4f6-d0eb2d925f86",
+			"name": "Reject blank body ->400",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "f2b26aa0-3581-4416-9ab7-2e2101823e54",
+			"name": "Reject unexpected property ->400",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 1,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code INVALID_REQUEST": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code INVALID_REQUEST": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code INVALID_REQUEST": true
+				}
+			]
+		},
+		{
+			"id": "0c80f341-6c44-468a-9805-3b68437cbae7",
+			"name": "Process EMAIL mock job",
+			"url": "http://localhost:3001/api/v1/deliveries/6ad17fbd020e08d8d9551aec/process",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"SENT simulated": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"SENT simulated": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"SENT simulated": true
+				}
+			]
+		},
+		{
+			"id": "cb228005-9ffb-4745-8bf2-687ad096b44f",
+			"name": "Reject processing already SENT ->409",
+			"url": "http://localhost:3001/api/v1/deliveries/6ad17fbd020e08d8d9551aec/process",
+			"time": 2,
+			"responseCode": {
+				"code": 409,
+				"name": "Conflict"
+			},
+			"tests": {
+				"HTTP 409": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code INVALID_DELIVERY_STATUS": true
+			},
+			"testPassFailCounts": {
+				"HTTP 409": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code INVALID_DELIVERY_STATUS": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 409": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code INVALID_DELIVERY_STATUS": true
+				}
+			]
+		},
+		{
+			"id": "64a28885-b127-4bfb-96cf-f187f12203bc",
+			"name": "Process FACEBOOK mock job",
+			"url": "http://localhost:3001/api/v1/deliveries/6ad17fbd020e08d8d9551af4/process",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"mock posted": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"mock posted": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"mock posted": true
+				}
+			]
+		},
+		{
+			"id": "a50df944-86eb-4bfb-8f21-50a53958c6e7",
+			"name": "Reject processing nonexistent job ->404",
+			"url": "http://localhost:3001/api/v1/deliveries/507f1f77bcf86cd799439011/process",
+			"time": 1,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"HTTP 404": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code DELIVERY_NOT_FOUND": true
+			},
+			"testPassFailCounts": {
+				"HTTP 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code DELIVERY_NOT_FOUND": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 404": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code DELIVERY_NOT_FOUND": true
+				}
+			]
+		},
+		{
+			"id": "9261f234-6fb3-4898-8fdb-162206b6f8b2",
+			"name": "Filter SENT delivery results",
+			"url": "http://localhost:3001/api/v1/deliveries?deliveryStatus=SENT",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"all SENT": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"all SENT": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"all SENT": true
+				}
+			]
+		},
+		{
+			"id": "c75f7404-4a96-457a-a541-2763e0b863b8",
+			"name": "Create active automation rule",
+			"url": "http://localhost:3001/api/v1/automations",
+			"time": 2,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "91a74a3d-974f-4a96-b4a0-269e6948d88d",
+			"name": "Create disabled rule",
+			"url": "http://localhost:3001/api/v1/automations",
+			"time": 2,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "8e808688-f0d5-4da5-b90b-c26fb1d8e2a8",
+			"name": "List automation rules",
+			"url": "http://localhost:3001/api/v1/automations",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "38b63b0c-d3f3-4553-b41f-8f6296fe80f9",
+			"name": "Filter rules by owner",
+			"url": "http://localhost:3001/api/v1/automations?ownerId=6ad17fbc020e08d8d9551ac6",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "dadc2792-8086-49f2-a426-0fe1aede4fb4",
+			"name": "Filter enabled automation rules",
+			"url": "http://localhost:3001/api/v1/automations?enabled=true",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "f2969eec-61cc-4d91-a3ba-a22cbebaf0fc",
+			"name": "Filter by trigger",
+			"url": "http://localhost:3001/api/v1/automations?trigger=LEAD_CREATED",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "6dcb5365-b48f-4e64-ae23-2d4dcc5efa2a",
+			"name": "Simulate LEAD_CREATED for registered owner",
+			"url": "http://localhost:3001/api/v1/automations/simulate-event",
+			"time": 2,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true,
+				"simulatedActions array": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"simulatedActions array": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true,
+					"simulatedActions array": true
+				}
+			]
+		},
+		{
+			"id": "ea54666e-bcae-4557-8321-5eea76dcea1d",
+			"name": "Reject repeated event ID ->409",
+			"url": "http://localhost:3001/api/v1/automations/simulate-event",
+			"time": 2,
+			"responseCode": {
+				"code": 409,
+				"name": "Conflict"
+			},
+			"tests": {
+				"HTTP 409": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 409": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 409": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "210d46fe-5a8e-4513-8b78-6549f57d8558",
+			"name": "List simulated events",
+			"url": "http://localhost:3001/api/v1/automations/events",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "a7a05418-d8c7-4a95-9bad-884a33edaac4",
+			"name": "Filter events by owner",
+			"url": "http://localhost:3001/api/v1/automations/events?ownerId=6ad17fbc020e08d8d9551ac6",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "9a359fd1-4180-4664-8fcf-026f0b008c43",
+			"name": "Filter events by eventType",
+			"url": "http://localhost:3001/api/v1/automations/events?eventType=LEAD_CREATED",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "0f234b18-9f78-462e-a015-e87645fbd868",
+			"name": "Analytics summary",
+			"url": "http://localhost:3001/api/v1/analytics/summary",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"analytics sections": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"analytics sections": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"analytics sections": true
+				}
+			]
+		},
+		{
+			"id": "0ecec5e1-d256-4fce-9491-fc55331c3088",
+			"name": "Rule invalid owner ID ->400",
+			"url": "http://localhost:3001/api/v1/automations",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "5f3fcc53-7814-4356-ac32-b2c94e169e66",
+			"name": "Rule nonexistent owner ID ->400",
+			"url": "http://localhost:3001/api/v1/automations",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "2a56d98d-6a01-4262-8049-8dfb450e9dc6",
+			"name": "Rule unsupported trigger ->400",
+			"url": "http://localhost:3001/api/v1/automations",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "1e394ea1-ca1e-450b-ab53-84980636da92",
+			"name": "Rule unsupported action ->400",
+			"url": "http://localhost:3001/api/v1/automations",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "8278bde6-1db4-44c5-88e6-39b68296534a",
+			"name": "Rule invalid delay ->400",
+			"url": "http://localhost:3001/api/v1/automations",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "dab2e7a5-240b-4429-a503-8cb318f7fe44",
+			"name": "Rule invalid enabled type ->400",
+			"url": "http://localhost:3001/api/v1/automations",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "ee347cc4-0a4b-4991-90ac-2cedc2f28470",
+			"name": "Rule invalid name ->400",
+			"url": "http://localhost:3001/api/v1/automations",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "eabaa3b6-2473-4f99-8742-6c6c480afa04",
+			"name": "Simulated event invalid entity ID ->400",
+			"url": "http://localhost:3001/api/v1/automations/simulate-event",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "54bb7a4c-51fe-49a0-8f34-1c13bcad5ddd",
+			"name": "Simulated event invalid eventType ->400",
+			"url": "http://localhost:3001/api/v1/automations/simulate-event",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "8d11dac7-1c65-4ce5-b00c-2f37bf3f1504",
+			"name": "Simulated event invalid metadata ->400",
+			"url": "http://localhost:3001/api/v1/automations/simulate-event",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "40869c09-7e76-4b96-b668-ff118222d2d3",
+			"name": "Invalid rules enabled filter ->400",
+			"url": "http://localhost:3001/api/v1/automations?enabled=1",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "06f46e32-2f9d-4065-b7f5-d0bcf55c1145",
+			"name": "Invalid event filter ->400",
+			"url": "http://localhost:3001/api/v1/automations/events?eventType=UNKNOWN",
+			"time": 1,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "f961beaa-f514-4b18-90e4-c006da8e04ff",
+			"name": "Campaign audience excludes non-consent",
+			"url": "http://localhost:3001/api/v1/campaigns/6ad17fbc020e08d8d9551adb/audience?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"nonconsenting never in audience": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"nonconsenting never in audience": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"nonconsenting never in audience": true
+				}
+			]
+		},
+		{
+			"id": "57ac5475-9563-47c4-bb33-e852f8e5e577",
+			"name": "Verify campaign remains ACTIVE",
+			"url": "http://localhost:3001/api/v1/campaigns/6ad17fbc020e08d8d9551adb?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"ACTIVE": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"ACTIVE": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"ACTIVE": true
+				}
+			]
+		},
+		{
+			"id": "870e4bce-9f69-42c1-b1aa-4e4871547eea",
+			"name": "Verify delivery simulated SENT",
+			"url": "http://localhost:3001/api/v1/deliveries?deliveryStatus=SENT",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"contains processed email": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"contains processed email": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"contains processed email": true
+				}
+			]
+		},
+		{
+			"id": "192f9321-f67c-4b0f-9702-2aa918ca5076",
+			"name": "Revoke Lead A consent",
+			"url": "http://localhost:3001/api/v1/leads/6ad17fbc020e08d8d9551acb",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"consent revoked": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"consent revoked": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"consent revoked": true
+				}
+			]
+		},
+		{
+			"id": "accaad83-5038-4518-8e66-20c72e4cb9d6",
+			"name": "Audience excludes newly unsubscribed Lead A",
+			"url": "http://localhost:3001/api/v1/campaigns/6ad17fbc020e08d8d9551adb/audience?advisorId=6ad17fbc020e08d8d9551ac7",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"revoked lead excluded": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"revoked lead excluded": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"revoked lead excluded": true
+				}
+			]
+		},
+		{
+			"id": "047f83fc-1282-4bbd-a186-37f33714b312",
+			"name": "Queue revoked Lead A ->403",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"HTTP 403": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code MARKETING_CONSENT_REQUIRED": true
+			},
+			"testPassFailCounts": {
+				"HTTP 403": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code MARKETING_CONSENT_REQUIRED": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 403": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code MARKETING_CONSENT_REQUIRED": true
+				}
+			]
+		},
+		{
+			"id": "4bb07e2c-9ca5-433e-bcd5-7d6d756aa95b",
+			"name": "Restore consent for independent later tests",
+			"url": "http://localhost:3001/api/v1/leads/6ad17fbc020e08d8d9551acb",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "c9f4f788-21cc-4e3b-af70-e397cece9481",
+			"name": "Queue new job for consent recheck",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 3,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "4a743647-0507-443d-beb1-387eab562f43",
+			"name": "Revoke consent after queueing",
+			"url": "http://localhost:3001/api/v1/leads/6ad17fbc020e08d8d9551acb",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "f1258e7f-f5e4-4dd6-815b-c5389859ab59",
+			"name": "Process queued job after revocation ->403",
+			"url": "http://localhost:3001/api/v1/deliveries/6ad17fbd020e08d8d9551b07/process",
+			"time": 2,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"HTTP 403": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code MARKETING_CONSENT_REQUIRED": true
+			},
+			"testPassFailCounts": {
+				"HTTP 403": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code MARKETING_CONSENT_REQUIRED": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 403": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code MARKETING_CONSENT_REQUIRED": true
+				}
+			]
+		},
+		{
+			"id": "a0a71692-d692-4cad-b530-ca83c85b4b8b",
+			"name": "Restore consent again",
+			"url": "http://localhost:3001/api/v1/leads/6ad17fbc020e08d8d9551acb",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "21fead29-cbfe-40e0-8e12-ced60b2e41ff",
+			"name": "Check analytics after simulation",
+			"url": "http://localhost:3001/api/v1/analytics/summary",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"events count >=1": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"events count >=1": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"events count >=1": true
+				}
+			]
+		},
+		{
+			"id": "6d987147-04f2-441f-b6e6-2f98030b6b94",
+			"name": "Unknown endpoint ->404",
+			"url": "http://localhost:3001/api/v1/not-an-existing-route",
+			"time": 1,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"HTTP 404": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 404": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "f3546831-31ba-4c86-a337-46ccc0803bc2",
+			"name": "Unsupported HTTP method on health ->404",
+			"url": "http://localhost:3001/api/v1/health",
+			"time": 2,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"HTTP 404": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 404": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "6a1a7aa1-1390-4042-82f4-c4d35f27049f",
+			"name": "Malformed JSON body ->400",
+			"url": "http://localhost:3001/api/v1/auth/register",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code INVALID_JSON": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code INVALID_JSON": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code INVALID_JSON": true
+				}
+			]
+		},
+		{
+			"id": "297d49d9-cecc-4ab5-b159-219f9b7e3ebd",
+			"name": "Array instead of lead object ->400",
+			"url": "http://localhost:3001/api/v1/leads",
+			"time": 1,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "b1d235dc-fe0f-4af3-831c-d09e99b416b0",
+			"name": "Array instead of delivery object ->400",
+			"url": "http://localhost:3001/api/v1/deliveries",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true
+				}
+			]
+		},
+		{
+			"id": "1f4f8b66-56dc-4aad-a40b-f1fa8f64f08b",
+			"name": "Missing advisorId on template list ->400",
+			"url": "http://localhost:3001/api/v1/campaigns/templates",
+			"time": 1,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code ADVISOR_ID_REQUIRED": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code ADVISOR_ID_REQUIRED": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code ADVISOR_ID_REQUIRED": true
+				}
+			]
+		},
+		{
+			"id": "803ad237-b2d1-41d1-986e-512a66faee0a",
+			"name": "Missing advisorId campaign update ->400",
+			"url": "http://localhost:3001/api/v1/campaigns/6ad17fbc020e08d8d9551adb",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"HTTP 400": true,
+				"JSON response": true,
+				"success is false": true,
+				"error envelope": true,
+				"error code ADVISOR_ID_REQUIRED": true
+			},
+			"testPassFailCounts": {
+				"HTTP 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error envelope": {
+					"pass": 1,
+					"fail": 0
+				},
+				"error code ADVISOR_ID_REQUIRED": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 400": true,
+					"JSON response": true,
+					"success is false": true,
+					"error envelope": true,
+					"error code ADVISOR_ID_REQUIRED": true
+				}
+			]
+		},
+		{
+			"id": "93919b3a-7601-4ccb-9ee9-04f4662e7fe4",
+			"name": "DIAGNOSTIC: Privacy/authorization not enforced in Phase I",
+			"url": "http://localhost:3001/api/v1/advisors/6ad17fbc020e08d8d9551ac7",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "02eefbd0-39e3-4292-8755-755be1a36edb",
+			"name": "DIAGNOSTIC: Automation campaignId has no referential check",
+			"url": "http://localhost:3001/api/v1/automations",
+			"time": 2,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"HTTP 201": true,
+				"JSON response": true,
+				"success is true": true
+			},
+			"testPassFailCounts": {
+				"HTTP 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"HTTP 201": true,
+					"JSON response": true,
+					"success is true": true
+				}
+			]
+		},
+		{
+			"id": "bd646aa1-99f7-44ab-b8a6-aacecca4e717",
+			"name": "DIAGNOSTIC: Lead has extra simulated property in schema",
+			"url": "http://localhost:3001/api/v1/leads/6ad17fbc020e08d8d9551acb",
+			"time": 1,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"HTTP 200": true,
+				"JSON response": true,
+				"success is true": true,
+				"diagnostic property state": true
+			},
+			"testPassFailCounts": {
+				"HTTP 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JSON response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"diagnostic property state": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1
+			],
+			"allTests": [
+				{
+					"HTTP 200": true,
+					"JSON response": true,
+					"success is true": true,
+					"diagnostic property state": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 412,
+	"collection": {
+		"requests": [
+			{
+				"id": "59f9aa2f-d7bd-4eae-84ed-9e4fba5985ab",
+				"method": "GET"
+			},
+			{
+				"id": "2f0f5171-9c1a-400a-b1b1-159b8810bf15",
+				"method": "GET"
+			},
+			{
+				"id": "d5a6bbd7-4b81-44c6-bd56-a5045f7891c5",
+				"method": "POST"
+			},
+			{
+				"id": "483aa3ef-e2ce-4e15-afe7-273117be10df",
+				"method": "POST"
+			},
+			{
+				"id": "f27995a5-bde9-40ce-8b7b-9c22b0180f30",
+				"method": "POST"
+			},
+			{
+				"id": "5959cb46-32f7-4154-8c6d-790d51494017",
+				"method": "POST"
+			},
+			{
+				"id": "49133154-dcbd-445d-8000-d390539c3931",
+				"method": "GET"
+			},
+			{
+				"id": "f1cce29e-d21a-4801-8f01-a496e983d236",
+				"method": "GET"
+			},
+			{
+				"id": "aa9cc1f9-f123-4489-8d44-1eeb900e42b1",
+				"method": "PATCH"
+			},
+			{
+				"id": "031cb0c5-d589-4b3f-808e-560a5ddde453",
+				"method": "POST"
+			},
+			{
+				"id": "55069b1c-6aff-4603-8ab5-4eb8a8610e2d",
+				"method": "POST"
+			},
+			{
+				"id": "ce3e5c8d-3ff2-46b5-a509-2def35053683",
+				"method": "POST"
+			},
+			{
+				"id": "c3b1b240-d62f-4dd0-a303-08782c34c355",
+				"method": "POST"
+			},
+			{
+				"id": "3b9c3af2-2234-4022-831b-bb9a78222230",
+				"method": "POST"
+			},
+			{
+				"id": "5f48d336-cddd-4f12-95d8-14072032281e",
+				"method": "POST"
+			},
+			{
+				"id": "994fc5ea-a9b3-4816-a2cc-0a0b560d4203",
+				"method": "POST"
+			},
+			{
+				"id": "5e7b3e0f-34b5-4a2d-b355-0a6d65877816",
+				"method": "PATCH"
+			},
+			{
+				"id": "f06f8fe5-72a3-400a-b18a-700c664f9b53",
+				"method": "PATCH"
+			},
+			{
+				"id": "851892a0-4b66-427c-816c-c999da03508e",
+				"method": "PATCH"
+			},
+			{
+				"id": "2854b8a3-42f3-4a20-9103-4872bf4aeec0",
+				"method": "GET"
+			},
+			{
+				"id": "32e46b71-756d-4528-8d88-1e7f2e88318b",
+				"method": "GET"
+			},
+			{
+				"id": "b1034348-0bc4-4956-b1b1-746f6233de27",
+				"method": "POST"
+			},
+			{
+				"id": "c4daa38e-262f-422d-886e-c94b82340aec",
+				"method": "POST"
+			},
+			{
+				"id": "8a6e3b20-139a-465b-9978-4ad281232b25",
+				"method": "POST"
+			},
+			{
+				"id": "4b444bab-fbd1-4b24-982d-91ca3c741a22",
+				"method": "POST"
+			},
+			{
+				"id": "2bcb4882-c55d-4caf-ac2e-ef1cb969c449",
+				"method": "POST"
+			},
+			{
+				"id": "681694e5-edcf-4cf7-b3e6-2c83405a31f7",
+				"method": "GET"
+			},
+			{
+				"id": "d894b4da-4fc1-4c45-86d0-b8a1167fef88",
+				"method": "GET"
+			},
+			{
+				"id": "2d15a350-74eb-481e-b38f-47bdbe35e3af",
+				"method": "GET"
+			},
+			{
+				"id": "c8a7f8d7-861d-4c3d-8d3e-d57b116368f2",
+				"method": "GET"
+			},
+			{
+				"id": "20a4d85a-8942-4449-ad05-841e6aa7865b",
+				"method": "GET"
+			},
+			{
+				"id": "335874dd-b1b4-44b9-8544-e3015440a7fb",
+				"method": "GET"
+			},
+			{
+				"id": "8094d628-5b1f-4c53-b249-17aa3fec8fc4",
+				"method": "GET"
+			},
+			{
+				"id": "9eaf3d7d-d813-4307-924e-c162dfaa561f",
+				"method": "PATCH"
+			},
+			{
+				"id": "6fb88b84-504c-4c33-beb3-7ef48495ddab",
+				"method": "POST"
+			},
+			{
+				"id": "b962ab86-fce8-4144-9876-4f8573216794",
+				"method": "PATCH"
+			},
+			{
+				"id": "6d78af20-3894-42ee-92c6-3daa3e04fed4",
+				"method": "PATCH"
+			},
+			{
+				"id": "5d7862a3-b926-40ad-8198-dc3cc4c58ddf",
+				"method": "POST"
+			},
+			{
+				"id": "bf1e7858-3c28-4130-83f4-732759ab00f3",
+				"method": "POST"
+			},
+			{
+				"id": "9e417945-43c1-46aa-919c-0cecb6bf793f",
+				"method": "POST"
+			},
+			{
+				"id": "feeaf6ff-24ee-4fb6-84e7-7f9b123e72f3",
+				"method": "POST"
+			},
+			{
+				"id": "3b1064f0-3ed6-4e71-8957-889d238d92fe",
+				"method": "POST"
+			},
+			{
+				"id": "e9b40e0c-c8d7-4703-9c74-9ed53b1c4b24",
+				"method": "PATCH"
+			},
+			{
+				"id": "92a1c492-ccd1-4aeb-8e59-e67dbedcc1cb",
+				"method": "PATCH"
+			},
+			{
+				"id": "2d366749-afcc-417c-ac97-c9fb60be4984",
+				"method": "GET"
+			},
+			{
+				"id": "e3a89200-1357-4938-85cd-c0615461fe68",
+				"method": "GET"
+			},
+			{
+				"id": "17e7f9f4-93bd-4735-9cee-e7345fc97a41",
+				"method": "GET"
+			},
+			{
+				"id": "08fc6eb4-9f96-464a-9d7f-71194b1414de",
+				"method": "GET"
+			},
+			{
+				"id": "09980769-a769-479d-9d30-38796d95e5f3",
+				"method": "GET"
+			},
+			{
+				"id": "88297f8d-8ffc-4bc1-8d39-314e1adc26eb",
+				"method": "GET"
+			},
+			{
+				"id": "6dbb9f74-196b-4c99-9b34-f88248a7fb06",
+				"method": "POST"
+			},
+			{
+				"id": "6819c66b-0607-4c45-a075-75d9a8fd1949",
+				"method": "POST"
+			},
+			{
+				"id": "4d4539e9-e7e4-421a-b6c3-f33483fd6d38",
+				"method": "POST"
+			},
+			{
+				"id": "efff33a8-bcc6-4a4d-be96-a38161f72db9",
+				"method": "GET"
+			},
+			{
+				"id": "7d3779d5-8194-4f14-847e-d31e1675da3e",
+				"method": "GET"
+			},
+			{
+				"id": "1f2ec79c-ded2-417e-b667-c7e74e39f0d6",
+				"method": "POST"
+			},
+			{
+				"id": "caaae4f8-3f24-40ed-8e8a-05e697957864",
+				"method": "POST"
+			},
+			{
+				"id": "10ceb718-6df1-41ef-a0cf-10115adeef6e",
+				"method": "POST"
+			},
+			{
+				"id": "d0fae666-a735-4229-b6f8-6d80baa47f1a",
+				"method": "POST"
+			},
+			{
+				"id": "5aa24bbf-6b92-41ae-9180-367a8b821742",
+				"method": "POST"
+			},
+			{
+				"id": "eeb834f9-cc95-44a2-a211-bd633a58354b",
+				"method": "GET"
+			},
+			{
+				"id": "5a3021ab-959b-4865-8879-cbdf2198a763",
+				"method": "GET"
+			},
+			{
+				"id": "b2e5564e-f49e-412d-9772-5c119ffb55e6",
+				"method": "GET"
+			},
+			{
+				"id": "ab92b67e-2a2f-4a19-9839-02faf171fcc3",
+				"method": "GET"
+			},
+			{
+				"id": "31d759ea-be53-495c-ab00-7525fabf4924",
+				"method": "PATCH"
+			},
+			{
+				"id": "8c6a8e26-bc34-43fe-a886-3d0cfac99dc1",
+				"method": "PATCH"
+			},
+			{
+				"id": "95230d2c-637c-4d9c-8672-04c827cd9619",
+				"method": "PATCH"
+			},
+			{
+				"id": "f537ea99-954a-4be3-8a57-846a014939c6",
+				"method": "PATCH"
+			},
+			{
+				"id": "2bd97d96-7213-4872-b750-8467752ef48c",
+				"method": "PATCH"
+			},
+			{
+				"id": "ee11e18a-ea20-4c59-8f21-3b34185a6fd1",
+				"method": "GET"
+			},
+			{
+				"id": "4e390cce-0343-435f-9933-2ca72bf607d5",
+				"method": "PATCH"
+			},
+			{
+				"id": "867c8bf4-5b46-4977-b367-ff3169930284",
+				"method": "PATCH"
+			},
+			{
+				"id": "3d562f54-6f52-4667-9149-20f666fe8b1a",
+				"method": "POST"
+			},
+			{
+				"id": "ca52eefe-5878-4fa7-94aa-cb0d706d97a5",
+				"method": "PATCH"
+			},
+			{
+				"id": "77e783f3-da11-4701-b78b-234cc43c47bf",
+				"method": "PATCH"
+			},
+			{
+				"id": "667a15a8-b5ef-4596-8bfd-e4795acd5b10",
+				"method": "PATCH"
+			},
+			{
+				"id": "5d1c582f-d77f-4ecf-a1ff-7885f1d1cdc4",
+				"method": "GET"
+			},
+			{
+				"id": "0db67a34-6a48-44f9-b475-f2601979a363",
+				"method": "GET"
+			},
+			{
+				"id": "ce6fff50-2e2b-47f7-aba0-5e87eaaf34ee",
+				"method": "GET"
+			},
+			{
+				"id": "80a03137-f66f-4f0f-becc-e810962c92d7",
+				"method": "POST"
+			},
+			{
+				"id": "27245bad-2ca5-4278-92b0-36ca3f0f277e",
+				"method": "POST"
+			},
+			{
+				"id": "ca145282-422c-42d5-b3f6-dd7581a89375",
+				"method": "GET"
+			},
+			{
+				"id": "17e80e20-286b-446c-9b22-6d7c7aba3a09",
+				"method": "GET"
+			},
+			{
+				"id": "7b34f4ac-ef6f-41c0-bab3-c34e3c7b64ab",
+				"method": "PATCH"
+			},
+			{
+				"id": "7aff4467-7534-486c-9484-382bdbc42d6f",
+				"method": "POST"
+			},
+			{
+				"id": "ce3b518d-fcc8-4656-89f7-605b464c7ef1",
+				"method": "POST"
+			},
+			{
+				"id": "89c6aebc-c72d-4a90-bf67-56356d789654",
+				"method": "POST"
+			},
+			{
+				"id": "e5032a41-ec18-4a11-88b7-6532d839f57a",
+				"method": "POST"
+			},
+			{
+				"id": "be8047fd-6d1a-476b-96d0-ef168a3c571f",
+				"method": "POST"
+			},
+			{
+				"id": "bf5d499d-9a61-4b06-bdff-59ba0a2f3044",
+				"method": "POST"
+			},
+			{
+				"id": "86682bba-682b-42bc-9434-b74121d3a426",
+				"method": "GET"
+			},
+			{
+				"id": "68822a4b-d074-4a42-8c9c-23c27685fb20",
+				"method": "GET"
+			},
+			{
+				"id": "eeb92a94-423b-4946-bfc1-588dfb1748b5",
+				"method": "GET"
+			},
+			{
+				"id": "9d61a99c-94b0-49bf-9c63-6c7fd135a6b0",
+				"method": "POST"
+			},
+			{
+				"id": "3258a848-ac14-49a3-b550-68e55bdc6dc3",
+				"method": "POST"
+			},
+			{
+				"id": "fdd6ffb5-18e0-4d74-8e0a-5f3951d60a05",
+				"method": "POST"
+			},
+			{
+				"id": "0d1d97e8-4545-4bed-aaac-a66f60c3417d",
+				"method": "POST"
+			},
+			{
+				"id": "a40f4345-3953-4b8f-842a-32ccd640789a",
+				"method": "POST"
+			},
+			{
+				"id": "f65c3f0a-079b-47e2-bfb7-0613eac0aab0",
+				"method": "POST"
+			},
+			{
+				"id": "f84bf189-f6c0-4aa7-9bf7-9570ae119fb7",
+				"method": "POST"
+			},
+			{
+				"id": "99825369-a586-414e-9f45-c4a22a169f46",
+				"method": "POST"
+			},
+			{
+				"id": "84eb4105-2adb-4085-af33-25b69d8b0dd7",
+				"method": "POST"
+			},
+			{
+				"id": "93b57995-b19e-494b-a9d2-158141affd23",
+				"method": "POST"
+			},
+			{
+				"id": "d5dabea2-6b2b-41c5-845d-287cc1eb991f",
+				"method": "POST"
+			},
+			{
+				"id": "af47f361-f2e0-4713-a4f6-d0eb2d925f86",
+				"method": "POST"
+			},
+			{
+				"id": "f2b26aa0-3581-4416-9ab7-2e2101823e54",
+				"method": "POST"
+			},
+			{
+				"id": "0c80f341-6c44-468a-9805-3b68437cbae7",
+				"method": "POST"
+			},
+			{
+				"id": "cb228005-9ffb-4745-8bf2-687ad096b44f",
+				"method": "POST"
+			},
+			{
+				"id": "64a28885-b127-4bfb-96cf-f187f12203bc",
+				"method": "POST"
+			},
+			{
+				"id": "a50df944-86eb-4bfb-8f21-50a53958c6e7",
+				"method": "POST"
+			},
+			{
+				"id": "9261f234-6fb3-4898-8fdb-162206b6f8b2",
+				"method": "GET"
+			},
+			{
+				"id": "c75f7404-4a96-457a-a541-2763e0b863b8",
+				"method": "POST"
+			},
+			{
+				"id": "91a74a3d-974f-4a96-b4a0-269e6948d88d",
+				"method": "POST"
+			},
+			{
+				"id": "8e808688-f0d5-4da5-b90b-c26fb1d8e2a8",
+				"method": "GET"
+			},
+			{
+				"id": "38b63b0c-d3f3-4553-b41f-8f6296fe80f9",
+				"method": "GET"
+			},
+			{
+				"id": "dadc2792-8086-49f2-a426-0fe1aede4fb4",
+				"method": "GET"
+			},
+			{
+				"id": "f2969eec-61cc-4d91-a3ba-a22cbebaf0fc",
+				"method": "GET"
+			},
+			{
+				"id": "6dcb5365-b48f-4e64-ae23-2d4dcc5efa2a",
+				"method": "POST"
+			},
+			{
+				"id": "ea54666e-bcae-4557-8321-5eea76dcea1d",
+				"method": "POST"
+			},
+			{
+				"id": "210d46fe-5a8e-4513-8b78-6549f57d8558",
+				"method": "GET"
+			},
+			{
+				"id": "a7a05418-d8c7-4a95-9bad-884a33edaac4",
+				"method": "GET"
+			},
+			{
+				"id": "9a359fd1-4180-4664-8fcf-026f0b008c43",
+				"method": "GET"
+			},
+			{
+				"id": "0f234b18-9f78-462e-a015-e87645fbd868",
+				"method": "GET"
+			},
+			{
+				"id": "0ecec5e1-d256-4fce-9491-fc55331c3088",
+				"method": "POST"
+			},
+			{
+				"id": "5f3fcc53-7814-4356-ac32-b2c94e169e66",
+				"method": "POST"
+			},
+			{
+				"id": "2a56d98d-6a01-4262-8049-8dfb450e9dc6",
+				"method": "POST"
+			},
+			{
+				"id": "1e394ea1-ca1e-450b-ab53-84980636da92",
+				"method": "POST"
+			},
+			{
+				"id": "8278bde6-1db4-44c5-88e6-39b68296534a",
+				"method": "POST"
+			},
+			{
+				"id": "dab2e7a5-240b-4429-a503-8cb318f7fe44",
+				"method": "POST"
+			},
+			{
+				"id": "ee347cc4-0a4b-4991-90ac-2cedc2f28470",
+				"method": "POST"
+			},
+			{
+				"id": "eabaa3b6-2473-4f99-8742-6c6c480afa04",
+				"method": "POST"
+			},
+			{
+				"id": "54bb7a4c-51fe-49a0-8f34-1c13bcad5ddd",
+				"method": "POST"
+			},
+			{
+				"id": "8d11dac7-1c65-4ce5-b00c-2f37bf3f1504",
+				"method": "POST"
+			},
+			{
+				"id": "40869c09-7e76-4b96-b668-ff118222d2d3",
+				"method": "GET"
+			},
+			{
+				"id": "06f46e32-2f9d-4065-b7f5-d0bcf55c1145",
+				"method": "GET"
+			},
+			{
+				"id": "f961beaa-f514-4b18-90e4-c006da8e04ff",
+				"method": "GET"
+			},
+			{
+				"id": "57ac5475-9563-47c4-bb33-e852f8e5e577",
+				"method": "GET"
+			},
+			{
+				"id": "870e4bce-9f69-42c1-b1aa-4e4871547eea",
+				"method": "GET"
+			},
+			{
+				"id": "192f9321-f67c-4b0f-9702-2aa918ca5076",
+				"method": "PATCH"
+			},
+			{
+				"id": "accaad83-5038-4518-8e66-20c72e4cb9d6",
+				"method": "GET"
+			},
+			{
+				"id": "047f83fc-1282-4bbd-a186-37f33714b312",
+				"method": "POST"
+			},
+			{
+				"id": "4bb07e2c-9ca5-433e-bcd5-7d6d756aa95b",
+				"method": "PATCH"
+			},
+			{
+				"id": "c9f4f788-21cc-4e3b-af70-e397cece9481",
+				"method": "POST"
+			},
+			{
+				"id": "4a743647-0507-443d-beb1-387eab562f43",
+				"method": "PATCH"
+			},
+			{
+				"id": "f1258e7f-f5e4-4dd6-815b-c5389859ab59",
+				"method": "POST"
+			},
+			{
+				"id": "a0a71692-d692-4cad-b530-ca83c85b4b8b",
+				"method": "PATCH"
+			},
+			{
+				"id": "21fead29-cbfe-40e0-8e12-ced60b2e41ff",
+				"method": "GET"
+			},
+			{
+				"id": "6d987147-04f2-441f-b6e6-2f98030b6b94",
+				"method": "GET"
+			},
+			{
+				"id": "f3546831-31ba-4c86-a337-46ccc0803bc2",
+				"method": "POST"
+			},
+			{
+				"id": "6a1a7aa1-1390-4042-82f4-c4d35f27049f",
+				"method": "POST"
+			},
+			{
+				"id": "297d49d9-cecc-4ab5-b159-219f9b7e3ebd",
+				"method": "POST"
+			},
+			{
+				"id": "b1d235dc-fe0f-4af3-831c-d09e99b416b0",
+				"method": "POST"
+			},
+			{
+				"id": "1f4f8b66-56dc-4aad-a40b-f1fa8f64f08b",
+				"method": "GET"
+			},
+			{
+				"id": "803ad237-b2d1-41d1-986e-512a66faee0a",
+				"method": "PATCH"
+			},
+			{
+				"id": "93919b3a-7601-4ccb-9ee9-04f4662e7fe4",
+				"method": "PATCH"
+			},
+			{
+				"id": "02eefbd0-39e3-4292-8755-755be1a36edb",
+				"method": "POST"
+			},
+			{
+				"id": "bd646aa1-99f7-44ab-b8a6-aacecca4e717",
+				"method": "GET"
+			}
+		]
+	}
+}

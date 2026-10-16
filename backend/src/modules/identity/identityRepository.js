@@ -47,7 +47,7 @@ export const identityRepository = {
 
     findAdvisorById(id) {
         return advisorProfiles.find(
-            profile => profile.id === id
+            profile => profile.id === String(id).toLowerCase()
         ) ?? null;
     },
 

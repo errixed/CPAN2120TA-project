@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import * as repository from "./campaignRepository.js";
+import { identityRepository } from "../identity/identityRepository.js";
 
 export const CAMPAIGN_STRATEGIES = Object.freeze([
     "NEWSLETTER",
@@ -36,6 +37,16 @@ const MUTABLE_FIELDS = new Set([
     "scheduledAt"
 ]);
 const CREATABLE_FIELDS = new Set(["advisorId", ...MUTABLE_FIELDS]);
+
+const CREATABLE_TEMPLATE_FIELDS = new Set([
+    "advisorId",
+    "name",
+    "channel",
+    "subject",
+    "body",
+    "isActive"
+]);
+
 const STATUS_TRANSITIONS = Object.freeze({
     DRAFT: new Set(["DRAFT", "SCHEDULED", "ACTIVE", "CANCELLED"]),
     SCHEDULED: new Set(["DRAFT", "SCHEDULED", "ACTIVE", "CANCELLED"]),
@@ -57,6 +68,20 @@ function requireObjectId(value, fieldName) {
     }
 
     return value;
+}
+
+function requireExistingAdvisor(advisorId) {
+    requireObjectId(advisorId, "advisorId");
+
+    const advisor = identityRepository.findAdvisorById(
+        String(advisorId)
+    );
+
+    if (!advisor) {
+        fail("Advisor not found.", 404, "ADVISOR_NOT_FOUND");
+    }
+
+    return advisor;
 }
 
 function validateFields(payload, allowedFields) {
@@ -211,6 +236,7 @@ export function createCampaignService(repo = repository) {
         async createCampaign(payload) {
             validateFields(payload, CREATABLE_FIELDS);
             const data = normalizeCampaignFields(payload, { create: true });
+            requireExistingAdvisor(data.advisorId);
             const desiredStatus = data.status ?? "DRAFT";
             data.status = "DRAFT";
             data.audience = normalizeAudience(data.audience);
@@ -275,7 +301,9 @@ export function createCampaignService(repo = repository) {
             const previousStatus = current.status;
             next.status = changes.status ?? previousStatus;
 
-            await validateStatusChange(previousStatus, next, repo);
+            if (next.status !== previousStatus) {
+                await validateStatusChange(previousStatus, next, repo);
+            }
 
             const templateOrAudienceChanged =
                 Object.hasOwn(changes, "channel") ||
@@ -295,6 +323,18 @@ export function createCampaignService(repo = repository) {
             }
 
             return repo.updateCampaign({ advisorId, campaignId, changes });
+        },
+
+        async createTemplate(payload) {
+            validateFields(payload, CREATABLE_TEMPLATE_FIELDS);
+
+            requireExistingAdvisor(payload.advisorId);
+
+            if (payload.channel && !CHANNELS.has(payload.channel)) {
+                fail("channel is not supported.");
+            }
+
+            return repo.createTemplate(payload);
         },
 
         async listTemplates({ advisorId, channel }) {
