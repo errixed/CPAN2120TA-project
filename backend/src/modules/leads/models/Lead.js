@@ -90,6 +90,9 @@ const leadSchema = new mongoose.Schema(
 );
 
 leadSchema.index({ advisorId: 1, status: 1 });
-leadSchema.index({ advisorId: 1, email: 1 });
+leadSchema.index(
+    { advisorId: 1, email: 1 },
+    { unique: true }
+);
 
 export default mongoose.model("Lead", leadSchema);

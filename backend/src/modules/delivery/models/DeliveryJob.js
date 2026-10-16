@@ -2,6 +2,12 @@ import mongoose from "mongoose";
 
 const deliveryJobSchema = new mongoose.Schema(
     {
+        advisorId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "AdvisorProfile",
+            required: true
+        },
+
         campaignId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Campaign",
@@ -83,7 +89,11 @@ const deliveryJobSchema = new mongoose.Schema(
             type: String,
             maxlength: 1000,
             default: null
-        }
+        },
+        simulated: {
+            type: Boolean,
+            default: true
+        },
     },
     {
         timestamps: true,
